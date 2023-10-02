@@ -1,6 +1,6 @@
 PROJECT =  mysync
 HEADERS =  $(PROJECT).h
-OBJ     =  copyfile.o //globals.o readmarks.o correlation.o
+OBJ     =  mysync.o read.o copyfile.o //correlation.o
 
 
 
