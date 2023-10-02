@@ -1,1 +1,1 @@
-balls
+//GLOBAL VARIABLES
