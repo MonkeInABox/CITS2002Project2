@@ -12,3 +12,4 @@ char*[] readFile(FILE *f){
     fclose(compFile);
     return fileCopy1;
 }
+
