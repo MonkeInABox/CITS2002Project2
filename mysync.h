@@ -8,7 +8,7 @@
 
 //GLOBAL FUNCTIONS
 extern void mysync();
-extern char*[] read(FILE *);
+extern char*[] read(char[] fileName);
 
 //GLOBAL VARIABLES DECLARED (see globals.c for comments about the variables)
 extern char *dirNames[];
