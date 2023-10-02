@@ -1,8 +1,8 @@
 #include "mysync.h"
 
-char*[] readFile(FILE *f){
+char*[] readFile(char fileName[]){
     FILE *compFile;
-    compFile = fopen(f, "r");
+    compFile = fopen(fileName, "r");
     int line = 0;
     while(!feof(compFile) && !ferror(compFile)){
         if(fgets(fileCopy1[line], 1000, compFile) != NULL){
@@ -12,4 +12,3 @@ char*[] readFile(FILE *f){
     fclose(compFile);
     return fileCopy1;
 }
-
