@@ -2,13 +2,13 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
+#include <getopt.h>
 //GLOBAL PROCESSOR CONSTANTS
 
 
 //GLOBAL FUNCTIONS
 extern void mysync();
-extern char*[] read(char[] fileName);
+extern char *read(char *fileName);
 
 //GLOBAL VARIABLES DECLARED (see globals.c for comments about the variables)
 extern char *dirNames[];
