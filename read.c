@@ -10,16 +10,22 @@ void readFile(char fileName[]){
         }
     }
     fclose(compFile);
-    return fileCopy1;
 }
 
 void readDir(char dirName[]){
     struct dirent* dirEntry;
     DIR* dir = opendir(dirName);
     int i = 0;
-    while((de = readdir(dir)) != NULL){
+    if(strmp(dirCopy[1], NULL) == 0){
+        while((dirEntry = readdir(dir)) != NULL){
         strcpy(dirCopy1[i], dirEntry->d_name);
         i++;
+        } 
+    } else{
+        while((dirEntry = readdir(dir)) != NULL){
+        strcpy(dirCopy2[i], dirEntry->d_name);
+        i++;
+        } 
     }
     closedir(dir);
 }
