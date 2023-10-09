@@ -5,6 +5,8 @@
 #define _POSIX_C_SOURCE 2
 #include <getopt.h>
 #include <unistd.h>
+#include <dirent.h>
+#include <errno.h>
 //GLOBAL PROCESSOR CONSTANTS
 
 
