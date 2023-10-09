@@ -8,12 +8,12 @@ void usage(int value){
         printf("--cmd options-- \n -a : all files are synchronised \n -i : filenames matching input are ingnored \n -n : files are identified, verbose output \n -o : only files matching input are synchronised \n -p : new file has same modification time and permissions \n -r : any dir in mentioned dir is processed \n -v : verbose output");
     }
     else if (value == 2) {
-        printf("Directory does not exist")
+        printf("Directory does not exist");
     }
 }
 
 int main(int argc, char *argv[]) {
-    DIR* dir = opendir(arg[2]);
+    DIR* dir = opendir(argv[2]);
     if (dir) {
         /* Directory exists. */
         int  opt;
