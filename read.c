@@ -16,7 +16,7 @@ void readDir(char dirName[]){
     struct dirent* dirEntry;
     DIR* dir = opendir(dirName);
     int i = 0;
-    if(strmp(dirCopy[1], NULL) == 0){
+      if(strmp(dirCopy[1], NULL) == 0){
         while((dirEntry = readdir(dir)) != NULL){
         strcpy(dirCopy1[i], dirEntry->d_name);
         i++;
