@@ -14,13 +14,16 @@ void usage(int value){
 
 int main(int argc, char *argv[]) {
     DIR* dir = opendir(argv[2]);
+    printf("awesome \n");
     if (dir) {
+        printf("awesomeSauce");
+        directoryContents(dir);
         /* Directory exists. */
         int  opt;
         bool aflag   = false;
         //char *pattern = NULL;
 
-        int optind	= 0;
+        //int optind	= 0;
         while((opt = getopt(argc, argv, OPTLIST)) != -1)   {  
         //  ACCEPT A BOOLEAN ARGUMENT
 	    if(opt == 'a') {
@@ -43,8 +46,8 @@ int main(int argc, char *argv[]) {
         if(argc <= 0) {    //  display program's usage/help   
             usage(1);
         }
-        argc  -= optind;
-        argv  += optind;
+        //argc  -= optind;
+        //argv  += optind;
         exit(EXIT_SUCCESS);
         closedir(dir);
     } else if (ENOENT == errno) {
@@ -54,6 +57,7 @@ int main(int argc, char *argv[]) {
         closedir(dir);
     } else {
         /* opendir() failed for some other reason. */
+        printf("idiot balls");
         exit(EXIT_FAILURE);
         closedir(dir);
 }

@@ -1,6 +1,6 @@
 #include "mysync.h"
 
-void readFile(char fileName[]){
+/*void readFile(char fileName[]){
     FILE *compFile;
     compFile = fopen(fileName, "r");
     int line = 0;
@@ -11,14 +11,15 @@ void readFile(char fileName[]){
     }
     fclose(compFile);
 }
-
-void readDir(char dirName[]){
+*/
+void directoryContents(DIR* dir){
     struct dirent* dirEntry;
-    DIR* dir = opendir(dirName);
+    printf("ermm");
     int i = 0;
     while((dirEntry = readdir(dir)) != NULL){
         strcpy(dirCopy1[i], dirEntry->d_name);
         i++;
+        printf("%s\n", dirEntry->d_name);
     }
     closedir(dir);
 }

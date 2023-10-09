@@ -12,7 +12,7 @@
 
 //GLOBAL FUNCTIONS
 extern void mysync();
-extern void readFile(char *fileName);
+extern void directoryContents(DIR* dir);
 
 //GLOBAL VARIABLES DECLARED (see globals.c for comments about the variables)
 extern char *dirNames[];
