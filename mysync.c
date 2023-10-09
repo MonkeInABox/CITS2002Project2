@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) {
     if (dir) {
         printf("awesomeSauce");
         directoryContents(dir);
-        /* Directory exists. */
+        //Directory exists. 
         int  opt;
         bool aflag   = false;
         //char *pattern = NULL;
@@ -39,27 +39,22 @@ int main(int argc, char *argv[]) {
         }
         //  OOPS - AN UNKNOWN ARGUMENT
         else {
-            argc = -1;
+           usage(1);
         }
-        }
+        
 
-        if(argc <= 0) {    //  display program's usage/help   
-            usage(1);
-        }
         //argc  -= optind;
         //argv  += optind;
         exit(EXIT_SUCCESS);
-        closedir(dir);
+        closedir(dir);}
     } else if (ENOENT == errno) {
-        /* Directory does not exist. */
+        //Directory does not exist. 
         usage(2);
         exit(EXIT_FAILURE);
         closedir(dir);
     } else {
-        /* opendir() failed for some other reason. */
-        printf("idiot balls");
+        // opendir() failed for some other reason
         exit(EXIT_FAILURE);
         closedir(dir);
 }
-    
 }
