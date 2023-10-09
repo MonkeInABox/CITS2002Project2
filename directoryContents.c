@@ -16,20 +16,11 @@ void directoryContents(DIR* dir){
     struct dirent* dirEntry;
     printf("ermm");
     int i = 0;
-      if(strmp(dirCopy[1], NULL) == 0){
+   
         while((dirEntry = readdir(dir)) != NULL){
         strcpy(dirCopy1[i], dirEntry->d_name);
         i++;
-<<<<<<< HEAD:directoryContents.c
         printf("%s\n", dirEntry->d_name);
-=======
-        } 
-    } else{
-        while((dirEntry = readdir(dir)) != NULL){
-        strcpy(dirCopy2[i], dirEntry->d_name);
-        i++;
-        } 
->>>>>>> a15450fe4a282ef46004145585547ed94f14b810:read.c
-    }
+        }
     closedir(dir);
 }
