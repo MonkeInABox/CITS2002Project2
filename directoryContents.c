@@ -17,9 +17,10 @@ void directoryContents(DIR* dir){
     printf("ermm");
     int i = 0;
         while((dirEntry = readdir(dir)) != NULL){
-        strcpy(dirCopy1[i], dirEntry->d_name);
-        i++;
-        printf("%s\n", dirEntry->d_name);
+            printf("%s\n", dirEntry->d_name);
+            dirCopy1[i] =  dirEntry->d_name;
+            i++;
         }
+        //printf("%s\n", dirCopy1[2]);
     closedir(dir);
 }

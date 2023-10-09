@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
         printf("awesomeSauce");
         directoryContents(dir);
         //Directory exists. 
-        int  opt;
+        /*int  opt;
         bool aflag   = false;
         //char *pattern = NULL;
 
@@ -41,12 +41,10 @@ int main(int argc, char *argv[]) {
         else {
            usage(1);
         }
-        
-
+        }
         //argc  -= optind;
-        //argv  += optind;
-        exit(EXIT_SUCCESS);
-        closedir(dir);}
+        //argv  += optind;*/
+        exit(EXIT_SUCCESS); 
     } else if (ENOENT == errno) {
         //Directory does not exist. 
         usage(2);
