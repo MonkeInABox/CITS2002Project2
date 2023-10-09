@@ -1,5 +1,5 @@
 #include "mysync.h"
 
-void main(int argc, char *argv[]){
+void copyfile(int argc, char *argv[]){
 
 }
