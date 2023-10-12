@@ -14,12 +14,12 @@ void usage(int value){
 
 int main(int argc, char *argv[]) {
     DIR* dir = opendir(argv[2]);
-    printf("awesome \n");
+    //printf("awesome \n");
     if (dir) {
-        printf("awesomeSauce");
+        //printf("awesomeSauce");
         directoryContents(dir);
         //Directory exists. 
-        /*int  opt;
+        int  opt;
         bool aflag   = false;
         //char *pattern = NULL;
 
@@ -43,7 +43,7 @@ int main(int argc, char *argv[]) {
         }
         }
         //argc  -= optind;
-        //argv  += optind;*/
+        //argv  += optind;
         exit(EXIT_SUCCESS); 
     } else if (ENOENT == errno) {
         //Directory does not exist. 

@@ -14,7 +14,7 @@
 */
 void directoryContents(DIR* dir){
     struct dirent* dirEntry;
-    printf("ermm");
+    //printf("ermm");
     int i = 0;
         while((dirEntry = readdir(dir)) != NULL){
             printf("%s\n", dirEntry->d_name);
