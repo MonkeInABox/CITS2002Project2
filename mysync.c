@@ -18,8 +18,8 @@ int main(int argc, char *argv[]) {
         dir[i-2] = opendir(argv[i]);
     }
     //printf("awesome \n");
-    for(int i = 0; i < argc - 2; i++){
-    if (dir[i]) {
+    for(int i = 0; i < argc; i++){
+        if (dir[i]) {
         //printf("awesomeSauce");
         //directoryContents(dir);
         //Directory exists. 
@@ -59,5 +59,6 @@ int main(int argc, char *argv[]) {
         // opendir() failed for some other reason
         exit(EXIT_FAILURE);
         closedir(dir[i]);
-}}
+}
+}
 }
