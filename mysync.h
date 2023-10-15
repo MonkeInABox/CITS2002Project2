@@ -1,12 +1,16 @@
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
-#define _POSIX_C_SOURCE 2
+//#define _POSIX_C_SOURCE 2
 #include <getopt.h>
 #include <unistd.h>
 #include <dirent.h>
 #include <errno.h>
+#include <time.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 //GLOBAL PROCESSOR CONSTANTS
 
 
@@ -18,6 +22,8 @@ extern void directoryContents(DIR* dir);
 extern char *dirNames[];
 extern char *dirModified[];
 extern char *dirCopy1[];
+extern char *dirpath1[];
 extern char *dirCopy2[];
 extern char *fileCopy1[];
 extern char *fileCopy2[];
+extern bool aflag;

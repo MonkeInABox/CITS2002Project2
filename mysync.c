@@ -13,14 +13,17 @@ void usage(int value){
 }
 
 int main(int argc, char *argv[]) {
-    DIR* dir = opendir(argv[2]);
+    DIR* dir[argc];
+    for(int i = 2; i < argc; i++){
+        dir[i-2] = opendir(argv[i]);
+    }
     //printf("awesome \n");
-    if (dir) {
+    for(int i = 0; i < argc - 2; i++){
+    if (dir[i]) {
         //printf("awesomeSauce");
-        directoryContents(dir);
+        //directoryContents(dir);
         //Directory exists. 
         int  opt;
-        bool aflag   = false;
         //char *pattern = NULL;
 
         //int optind	= 0;
@@ -28,6 +31,7 @@ int main(int argc, char *argv[]) {
         //  ACCEPT A BOOLEAN ARGUMENT
 	    if(opt == 'a') {
             aflag  =  !aflag;
+            //printf("%i", aflag);
         }
         //  ACCEPT A STRING ARGUMENT
 	    else if(opt == 'i') {
@@ -41,6 +45,7 @@ int main(int argc, char *argv[]) {
         else {
            usage(1);
         }
+        directoryContents(dir[i]);
         }
         //argc  -= optind;
         //argv  += optind;
@@ -49,10 +54,10 @@ int main(int argc, char *argv[]) {
         //Directory does not exist. 
         usage(2);
         exit(EXIT_FAILURE);
-        closedir(dir);
+        closedir(dir[i]);
     } else {
         // opendir() failed for some other reason
         exit(EXIT_FAILURE);
-        closedir(dir);
-}
+        closedir(dir[i]);
+}}
 }
