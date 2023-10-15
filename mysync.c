@@ -14,51 +14,59 @@ void usage(int value){
 
 int main(int argc, char *argv[]) {
     DIR* dir[argc];
+    int n = 0;
     for(int i = 2; i < argc; i++){
-        dir[i-2] = opendir(argv[i]);
+        dir[n] = opendir(argv[i]);
+        n++;
     }
     //printf("awesome \n");
-    for(int i = 0; i < argc; i++){
+    for(int i = 0; i < n; i++){
         if (dir[i]) {
-        //printf("awesomeSauce");
-        //directoryContents(dir);
-        //Directory exists. 
-        int  opt;
-        //char *pattern = NULL;
+            //printf("awesomeSauce");
+            //directoryContents(dir);
+            //Directory exists. 
+            if(i == 0){
+            int  opt;
+            //char *pattern = NULL;
 
-        //int optind	= 0;
-        while((opt = getopt(argc, argv, OPTLIST)) != -1)   {  
-        //  ACCEPT A BOOLEAN ARGUMENT
-	    if(opt == 'a') {
-            aflag  =  !aflag;
-            //printf("%i", aflag);
-        }
-        //  ACCEPT A STRING ARGUMENT
-	    else if(opt == 'i') {
-            //pattern  =  strdup(optarg);
-        }
-        //  ACCEPT A INTEGER ARGUMENT
-	    else if(opt == 'n') {
-            //pattern  =  atoi(optarg);
-        }
-        //  OOPS - AN UNKNOWN ARGUMENT
-        else {
-           usage(1);
-        }
-        directoryContents(dir[i]);
-        }
-        //argc  -= optind;
-        //argv  += optind;
-        exit(EXIT_SUCCESS); 
-    } else if (ENOENT == errno) {
+            //int optind	= 0;
+                while((opt = getopt(argc, argv, OPTLIST)) != -1)   {  
+                //  ACCEPT A BOOLEAN ARGUMENT
+                    if(opt == 'a') {
+                        aflag  =  !aflag;
+                        //printf("%i", aflag);
+                    }
+                    //  ACCEPT A STRING ARGUMENT
+                    else if(opt == 'i') {
+                        //pattern  =  strdup(optarg);
+                    }
+                    //  ACCEPT A INTEGER ARGUMENT
+                    else if(opt == 'n') {
+                        //pattern  =  atoi(optarg);
+                    }
+                    //  OOPS - AN UNKNOWN ARGUMENT
+                    else {
+                    usage(1);
+                    }
+                }
+            }
+            directoryContents(dir[i]);
+            
+            //argc  -= optind;
+            //argv  += optind;
+            //exit(EXIT_SUCCESS); 
+    } 
+    else if (ENOENT == errno) {
         //Directory does not exist. 
         usage(2);
         exit(EXIT_FAILURE);
         closedir(dir[i]);
-    } else {
+    } 
+    else {
         // opendir() failed for some other reason
         exit(EXIT_FAILURE);
         closedir(dir[i]);
+    }
 }
-}
+exit(EXIT_SUCCESS);
 }

@@ -14,36 +14,31 @@
 */
 void directoryContents(DIR* dir){
     struct dirent* dirEntry;
+    struct stat attr;
     //printf("ermm");
     int i = 0;
         while((dirEntry = readdir(dir)) != NULL){
             if(!aflag){
                 if(dirEntry->d_name[0] != '.'){
                     printf("%s\n", dirEntry->d_name);
-                    dirCopy1[i] =  dirEntry->d_name;
+                    dirCopy1[i] = dirEntry->d_name;
                     //dirpath1[i] = realpath(dirEntry->d_name, NULL);
                     //printf("%s\n", dirpath1[i]);
                     dirpath1[i] = realpath(dirEntry->d_name, NULL);
-                    struct stat attrib;
-                    stat(dirEntry->d_name, &attrib);
-                    char time[50];
-                    strftime(time, 50, "%Y-%m-%d %H:%M:%S", localtime(&attrib.st_mtime));
-                    printf ("%s\n", time);
+                    stat(dirpath1[i], &attr);
+                    printf("Last modified time: %s", ctime(&attr.st_mtime));
                     i++;
                 }
             }
             else{
                 printf("%s\n", dirEntry->d_name);
-                    dirCopy1[i] =  dirEntry->d_name;
-                    //dirpath1[i] = realpath(dirEntry->d_name, NULL);
-                    //printf("%s\n", dirpath1[i]);
-                    dirpath1[i] = realpath(dirEntry->d_name, NULL);
-                    struct stat attrib;
-                    stat(dirEntry->d_name, &attrib);
-                    char time[50];
-                    strftime(time, 50, "%Y-%m-%d %H:%M:%S", localtime(&attrib.st_mtime));
-                    printf ("%s\n", time);
-                    i++;
+                dirCopy1[i] = dirEntry->d_name;
+                //dirpath1[i] = realpath(dirEntry->d_name, NULL);
+                //printf("%s\n", dirpath1[i]);
+                dirpath1[i] = realpath(dirEntry->d_name, NULL);
+                stat(dirpath1[i], &attr);
+                printf("Last modified time: %s", ctime(&attr.st_mtime));
+                i++;
             }
         }
         //printf("%s\n", dirCopy1[2]);
