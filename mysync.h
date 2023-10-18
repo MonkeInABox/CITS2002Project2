@@ -23,7 +23,7 @@ extern char *dirNames[];
 extern char *dirModified[];
 extern char *newDir[];
 extern char *newDirPath[];
-struct stat *newDirStat[]; 
+extern struct stat *newDirStat[]; 
 extern char *fileCopy1[];
 extern char *fileCopy2[];
 extern bool aflag;
