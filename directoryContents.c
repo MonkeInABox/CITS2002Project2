@@ -43,9 +43,12 @@ void directoryContents(DIR* dir){
                         printf("%s\n", dirEntry->d_name);
                         printf("poop");
                         newDir[i] = dirEntry->d_name;
-                        newDirPath[i] = realpath(dirEntry->d_name, NULL);
+                        newDirPath[i] = realpath(dirEntry->d_name, newDirPath[i]);
+                        printf("%s \n",realpath(dirEntry->d_name, newDirPath[i]));
                         stat(newDirPath[i], &attr);
-                        printf("Last modified time: %s", ctime(&newDirStat[i]->st_mtime));
+                        newDirStat[i] = &attr;
+                        time_t t1 = newDirStat[i]->st_mtime;
+                        printf("Last modified time: %ld \n", t1);
                         i++;
                     }
                 } else{
@@ -68,9 +71,12 @@ void directoryContents(DIR* dir){
                         if(copy == 0){
                             printf("%s\n", dirEntry->d_name);
                             newDir[i] = dirEntry->d_name;
-                            newDirPath[i] = realpath(dirEntry->d_name, NULL);
+                            newDirPath[i] = realpath(dirEntry->d_name, newDirPath[i]);
+                            printf("%s \n",realpath(dirEntry->d_name, newDirPath[i]));
                             stat(newDirPath[i], &attr);
-                            printf("Last modified time: %s", ctime(&newDirStat[i]->st_mtime));
+                            newDirStat[i] = &attr;
+                            time_t t1 = newDirStat[i]->st_mtime;
+                            printf("Last modified time: %ld \n", t1);
                             i++;   
                         }
                                         
@@ -89,7 +95,8 @@ void directoryContents(DIR* dir){
                     i++;
                 } else{
                         int copy = 0;
-                        char *path = realpath(dirEntry->d_name, NULL);
+                        char *path = realpath(dirEntry->d_name, newDirPath[i]);
+                        printf("%s \n",realpath(dirEntry->d_name, newDirPath[i]));
                         stat(path, &attr);
                         for(int k = 0; k < i; k++){
                             if(strcmp(newDir[k], dirEntry->d_name) == 0){
@@ -103,9 +110,12 @@ void directoryContents(DIR* dir){
                         if(copy == 0){
                             printf("%s\n", dirEntry->d_name);
                             newDir[i] = dirEntry->d_name;
-                            newDirPath[i] = realpath(dirEntry->d_name, NULL);
+                            newDirPath[i] = realpath(dirEntry->d_name, newDirPath[i]);
+                            printf("%s \n",realpath(dirEntry->d_name, newDirPath[i]));
                             stat(newDirPath[i], &attr);
-                            printf("Last modified time: %s", ctime(&newDirStat[i]->st_mtime));
+                            newDirStat[i] = &attr;
+                            time_t t1 = newDirStat[i]->st_mtime;
+                            printf("Last modified time: %ld \n", t1);
                             i++;   
                         }
                                         
