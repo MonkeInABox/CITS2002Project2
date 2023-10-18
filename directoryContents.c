@@ -25,7 +25,7 @@ int compareTimes(const struct timespec *t1, const struct timespec *t2) {
 }
 
 int indexesToCopy(char *fileNames1[], char *filenames2[]){
-    fprintf( stdout, "%s and \n", fileNames1[i] fileNames2[]);
+    //fprintf( stdout, "%s and \n", fileNames1[] fileNames2[]);
 }  
 
 void directoryContents(DIR* dir){
