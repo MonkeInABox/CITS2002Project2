@@ -22,7 +22,7 @@ int main(int argc, char *argv[]) {
     //printf("awesome \n");
     for(int i = 0; i < n; i++){
         if (dir[i]) {
-            printf("awesomeSauce");
+            //printf("awesomeSauce");
             //directoryContents(dir);
             //Directory exists. 
             if(i == 0){
