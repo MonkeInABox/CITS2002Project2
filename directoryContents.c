@@ -78,14 +78,12 @@ void directoryContents(DIR* dir){
             }
             else{
                 if(firstDir == 0){
-                    printf("%i\n", i);
-                    printf("%s\n", dirEntry->d_name);
-                    printf("poop");
                     char *name = dirEntry->d_name;
                     printf("%s\n", name);
                     newDir[i] = name;
-                    realpath(dirEntry->d_name, newDirPath[i]);
-                    stat(newDirPath[i], newDirStat[i]);
+                    printf("%s",realpath(dirEntry->d_name, newDirPath[i]));
+                    stat(newDirPath[i], &attr);
+                    newDirStat[i] = &attr;
                     time_t t1 = newDirStat[i]->st_mtime;
                     printf("Last modified time: %ld", t1);
                     i++;
