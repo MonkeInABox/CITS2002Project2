@@ -21,9 +21,9 @@ extern void directoryContents(DIR* dir);
 //GLOBAL VARIABLES DECLARED (see globals.c for comments about the variables)
 extern char *dirNames[];
 extern char *dirModified[];
-extern char *dirCopy1[];
-extern char *dirpath1[];
-extern char *dirCopy2[];
+extern char *newDir[];
+extern char *newDirPath[];
+struct stat *newDirStat[]; 
 extern char *fileCopy1[];
 extern char *fileCopy2[];
 extern bool aflag;
