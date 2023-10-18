@@ -29,13 +29,14 @@ void indexesToCopy(char *fileNames1[], char *filenames2[]){
 }  
 
 void directoryContents(DIR* dir){
+    static int firstDir = 0;
     struct dirent* dirEntry;
     //printf("ermm");
     int i = 0;
     struct stat attr;
         while((dirEntry = readdir(dir)) != NULL){
             if(!aflag){
-                if(strcmp(newDir[i], "\0") == 0){
+                if(firstDir == 0){
                     if(dirEntry->d_name[0] != '.'){
                         printf("%s\n", dirEntry->d_name);
                         newDir[i] = dirEntry->d_name;
@@ -60,7 +61,7 @@ void directoryContents(DIR* dir){
                                 }
                                 copy = 1;
                             }
-                        } 
+                        }
                         if(copy == 0){
                             printf("%s\n", dirEntry->d_name);
                             newDir[i] = dirEntry->d_name;
@@ -73,7 +74,7 @@ void directoryContents(DIR* dir){
                     }
             }
             else{
-                if(strcmp(newDir[i], "\0") == 0){
+                if(firstDir == 0){
                     printf("%s\n", dirEntry->d_name);
                     newDir[i] = dirEntry->d_name;
                     newDirPath[i] = realpath(dirEntry->d_name, NULL);
@@ -105,6 +106,7 @@ void directoryContents(DIR* dir){
                     }
             }
         }
+    firstDir = 1;
     closedir(dir);
 }                
 
