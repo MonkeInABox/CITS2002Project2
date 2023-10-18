@@ -22,10 +22,11 @@ int main(int argc, char *argv[]) {
     //printf("awesome \n");
     for(int i = 0; i < n; i++){
         if (dir[i]) {
-            //printf("awesomeSauce");
+            printf("awesomeSauce");
             //directoryContents(dir);
             //Directory exists. 
             if(i == 0){
+                //printf("poop");
             int  opt;
             //char *pattern = NULL;
 
@@ -33,6 +34,7 @@ int main(int argc, char *argv[]) {
                 while((opt = getopt(argc, argv, OPTLIST)) != -1)   {  
                 //  ACCEPT A BOOLEAN ARGUMENT
                     if(opt == 'a') {
+                        //printf("poop");
                         aflag  =  !aflag;
                         //printf("%i", aflag);
                     }
@@ -50,6 +52,7 @@ int main(int argc, char *argv[]) {
                     }
                 }
             }
+            //printf("poop");
             directoryContents(dir[i]);
             
             //argc  -= optind;

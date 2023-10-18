@@ -35,10 +35,12 @@ void directoryContents(DIR* dir){
     int i = 0;
     struct stat attr;
         while((dirEntry = readdir(dir)) != NULL){
+            printf("upowpie \n");
             if(!aflag){
                 if(firstDir == 0){
                     if(dirEntry->d_name[0] != '.'){
                         printf("%s\n", dirEntry->d_name);
+                        printf("poop");
                         newDir[i] = dirEntry->d_name;
                         newDirPath[i] = realpath(dirEntry->d_name, NULL);
                         stat(newDirPath[i], &attr);
@@ -64,6 +66,7 @@ void directoryContents(DIR* dir){
                         }
                         if(copy == 0){
                             printf("%s\n", dirEntry->d_name);
+                            printf("poop");
                             newDir[i] = dirEntry->d_name;
                             newDirPath[i] = realpath(dirEntry->d_name, NULL);
                             stat(newDirPath[i], &attr);
@@ -75,11 +78,16 @@ void directoryContents(DIR* dir){
             }
             else{
                 if(firstDir == 0){
+                    printf("%i\n", i);
                     printf("%s\n", dirEntry->d_name);
-                    newDir[i] = dirEntry->d_name;
-                    newDirPath[i] = realpath(dirEntry->d_name, NULL);
-                    stat(newDirPath[i], &attr);
-                    printf("Last modified time: %s", ctime(&newDirStat[i]->st_mtime));
+                    printf("poop");
+                    char *name = dirEntry->d_name;
+                    printf("%s\n", name);
+                    newDir[i] = name;
+                    realpath(dirEntry->d_name, newDirPath[i]);
+                    stat(newDirPath[i], newDirStat[i]);
+                    time_t t1 = newDirStat[i]->st_mtime;
+                    printf("Last modified time: %ld", t1);
                     i++;
                 } else{
                         int copy = 0;
@@ -96,6 +104,7 @@ void directoryContents(DIR* dir){
                         } 
                         if(copy == 0){
                             printf("%s\n", dirEntry->d_name);
+                            printf("poop");
                             newDir[i] = dirEntry->d_name;
                             newDirPath[i] = realpath(dirEntry->d_name, NULL);
                             stat(newDirPath[i], &attr);
