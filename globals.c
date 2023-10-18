@@ -9,3 +9,7 @@ char *fileCopy2[1];                          //used for comparison purposes
 char *dirNames[5];
 char *dirModified[1];        //match up dirModified indexes w/ dirNames indexes?
 bool aflag = false;
+bool nflag = false;
+bool rflag = false;
+bool pflag = false;
+bool vflag = false;

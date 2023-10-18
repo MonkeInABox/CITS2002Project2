@@ -27,3 +27,7 @@ extern char *dirCopy2[];
 extern char *fileCopy1[];
 extern char *fileCopy2[];
 extern bool aflag;
+extern bool nflag;
+extern bool rflag;
+extern bool pflag;
+extern bool vflag;

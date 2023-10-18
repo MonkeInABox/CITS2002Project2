@@ -38,7 +38,7 @@ void directoryContents(DIR* dir){
                 dirpath1[i] = realpath(dirEntry->d_name, NULL);
                 printf("%i\n", i);
                 printf("arraylength: %ld\n", sizeof(*dirpath1));
-                //printf("%s\n", dirpath1[i]);
+                //  printf("%s\n", dirpath1[i]);
                 stat(dirCopy1[i], &attr);
                 strftime(timemod, 50, "%c", localtime(&(attr.st_mtime)));
                 printf("Last modified time: %s\n", timemod);
