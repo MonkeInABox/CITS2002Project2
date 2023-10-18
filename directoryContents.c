@@ -33,14 +33,15 @@ void directoryContents(DIR* dir){
     //printf("ermm");
     int i = 0;
     struct stat attr;
+    struct stat statBuffer;
         while((dirEntry = readdir(dir)) != NULL){
             if(!aflag){
-                if(strcmp(newDir[i], NULL) == 0){
+                if(strcmp(newDir[i], "\0") == 0){
                     if(dirEntry->d_name[0] != '.'){
                         printf("%s\n", dirEntry->d_name);
                         newDir[i] = dirEntry->d_name;
                         newDirPath[i] = realpath(dirEntry->d_name, NULL);
-                        stat(newDirPath[i], &newDirStat[i]);
+                        newDirStat[i] = stat(newDirPath[i], &statBuffer);
                         printf("Last modified time: %s", ctime(&newDirStat[i]->st_mtime));
                         i++;
                     }
@@ -55,7 +56,7 @@ void directoryContents(DIR* dir){
                         for(int k = 0; k < i; k++){
                             if(strcmp(newDir[k], dirEntry->d_name) == 0){
                                 if(&newDirStat[k]->st_mtime < &attr.st_mtime){
-                                    dirPath[k] = path;
+                                    newDirPath[k] = path;
                                     newDirStat[k] = &attr;
                                 }
                                 copy = 1;
@@ -65,19 +66,19 @@ void directoryContents(DIR* dir){
                             printf("%s\n", dirEntry->d_name);
                             newDir[i] = dirEntry->d_name;
                             newDirPath[i] = realpath(dirEntry->d_name, NULL);
-                            stat(newDirPath[i], &newDirStat[i]);
-                            printf("Last modified time: %s", ctime(&newDirStat[i].st_mtime));
+                            newDirStat[i] = stat(newDirPath[i], &statBuffer);
+                            printf("Last modified time: %s", ctime(&newDirStat[i]->st_mtime));
                             i++;   
                         }
                                         
                     }
             }
             else{
-                if(strcmp(newDir[i], NULL) == 0){
+                if(strcmp(newDir[i], "\0") == 0){
                     printf("%s\n", dirEntry->d_name);
                     newDir[i] = dirEntry->d_name;
                     newDirPath[i] = realpath(dirEntry->d_name, NULL);
-                    stat(newDirPath[i], &newDirStat[i]);
+                    newDirStat[i] = stat(newDirPath[i], &statBuffer);
                     printf("Last modified time: %s", ctime(&newDirStat[i]->st_mtime));
                     i++;
                 } else{
@@ -97,8 +98,8 @@ void directoryContents(DIR* dir){
                             printf("%s\n", dirEntry->d_name);
                             newDir[i] = dirEntry->d_name;
                             newDirPath[i] = realpath(dirEntry->d_name, NULL);
-                            stat(newDirPath[i], &newDirStat[i]);
-                            printf("Last modified time: %s", ctime(&newDirStat[i].st_mtime));
+                            newDirStat[i] = (newDirPath[i], &statBuffer);
+                            printf("Last modified time: %s", ctime(&newDirStat[i]->st_mtime));
                             i++;   
                         }
                                         
