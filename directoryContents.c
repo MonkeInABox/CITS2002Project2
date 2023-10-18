@@ -13,6 +13,21 @@
 }
 */
 
+
+//function to compare times
+int compareTimes(const struct timespec *t1, const struct timespec *t2) {
+    if (t1->tv_sec == t2->tv_sec)
+        return (t1->tv_nsec > t2->tv_nsec) - (t1->tv_nsec < t2->tv_nsec);
+        //returns 0 if the two times are equal
+    else
+        return (t1->tv_sec > t2->tv_sec) ? 1 : -1;
+        //returns 1 if t1 > t2, else -1
+}
+
+int indexesToCopy(char *fileNames1[], char *filenames2[]){
+    fprintf( stdout, "%s and \n", fileNames1[i] fileNames2[]);
+}  
+
 void directoryContents(DIR* dir){
     struct dirent* dirEntry;
     //printf("ermm");
@@ -38,13 +53,12 @@ void directoryContents(DIR* dir){
                 dirpath1[i] = realpath(dirEntry->d_name, NULL);
                 printf("%i\n", i);
                 printf("arraylength: %ld\n", sizeof(*dirpath1));
-                //  printf("%s\n", dirpath1[i]);
+                //printf("%s\n", dirpath1[i]);
                 stat(dirCopy1[i], &attr);
                 strftime(timemod, 50, "%c", localtime(&(attr.st_mtime)));
                 printf("Last modified time: %s\n", timemod);
                 i++;
             }
         }
-        //printf("%s\n", dirCopy1[2]);
     closedir(dir);
 }

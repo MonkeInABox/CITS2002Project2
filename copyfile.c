@@ -1,5 +1,5 @@
 #include "mysync.h"
 
-void copyfile(int argc, char *argv[]){
+void copyfile(char *filePath1, char *filePath2){
 
 }
