@@ -41,7 +41,7 @@ void directoryContents(DIR* dir){
                         newDir[i] = dirEntry->d_name;
                         newDirPath[i] = realpath(dirEntry->d_name, NULL);
                         stat(newDirPath[i], &newDirStat[i]);
-                        printf("Last modified time: %s", ctime(&newDirStat[i].st_mtime));
+                        printf("Last modified time: %s", ctime(&newDirStat[i]->st_mtime));
                         i++;
                     }
                 } else{
@@ -54,9 +54,9 @@ void directoryContents(DIR* dir){
                         //if no copy is found, then it is added to the newDir as normal.
                         for(int k = 0; k < i; k++){
                             if(strcmp(newDir[k], dirEntry->d_name) == 0){
-                                if(&newDirStat[k].st_mtime < &attr.st_mtime){
+                                if(&newDirStat[k]->st_mtime < &attr.st_mtime){
                                     dirPath[k] = path;
-                                    newDirStat[k] = attr;
+                                    newDirStat[k] = &attr;
                                 }
                                 copy = 1;
                             }
@@ -78,7 +78,7 @@ void directoryContents(DIR* dir){
                     newDir[i] = dirEntry->d_name;
                     newDirPath[i] = realpath(dirEntry->d_name, NULL);
                     stat(newDirPath[i], &newDirStat[i]);
-                    printf("Last modified time: %s", ctime(&newDirStat[i].st_mtime));
+                    printf("Last modified time: %s", ctime(&newDirStat[i]->st_mtime));
                     i++;
                 } else{
                         int copy = 0;
@@ -86,9 +86,9 @@ void directoryContents(DIR* dir){
                         stat(path, &attr);
                         for(int k = 0; k < i; k++){
                             if(strcmp(newDir[k], dirEntry->d_name) == 0){
-                                if(&newDirStat[k].st_mtime < &attr.st_mtime){
+                                if(&newDirStat[k]->st_mtime < &attr.st_mtime){
                                     dirPath[k] = path;
-                                    newDirStat[k] = attr;
+                                    newDirStat[k] = &attr;
                                 }
                                 copy = 1;
                             }
