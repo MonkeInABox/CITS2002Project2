@@ -29,9 +29,9 @@ void copyfile(struct stat *stats1, int index1, struct stat stats2, int index2){
         newDirPath[index1] = realpath(newDir[index1], NULL); 
         dirNames[index1] = dirNames[index2];
         char path2[512];
-        printf("%s\n",strcat(strcat(realpath(dirNames[index2], path2),"/"), newDir[index2]));
         char path1[512]; 
-        printf("%s\n",strcat(strcat(realpath(dirNames[index1], path1),"/"), newDir[index1]));
+        printf("%s\n",strcat(strcat(realpath(dirNames[index2], path1),"/"), newDir[index2]));
+        printf("%s\n",strcat(strcat(realpath(dirNames[index1], path2),"/"), newDir[index1]));
         FILE *sourceFile  = fopen(path2, "r");
         FILE *destFile    = fopen(path1, "w");  
 

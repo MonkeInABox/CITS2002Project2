@@ -5,10 +5,10 @@
 void usage(int value) {
     if (value == 1) {
         printf("please input ./mysync  [cmd]  [dir/s] \n");
-        printf("--cmd options-- \n -a : all files are synchronised \n -i : filenames matching input are ingnored \n -n : files are identified, verbose output \n -o : only files matching input are synchronised \n -p : new file has same modification time and permissions \n -r : any dir in mentioned dir is processed \n -v : verbose output");
+        printf("--cmd options-- \n -a : all files are synchronised \n -i : filenames matching input are ingnored \n -n : files are identified, verbose output \n -o : only files matching input are synchronised \n -p : new file has same modification time and permissions \n -r : any dir in mentioned dir is processed \n -v : verbose output\n");
     }
     else if (value == 2) {
-        printf("Directory does not exist");
+        printf("Directory does not exist\n");
     }
 }
 
@@ -49,6 +49,7 @@ int main(int argc, char *argv[]) {
                     //  OOPS - AN UNKNOWN ARGUMENT
                     else {
                     usage(1);
+                    exit(EXIT_FAILURE);
                     }
                 }
             }
