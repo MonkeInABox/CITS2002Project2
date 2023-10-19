@@ -66,7 +66,7 @@ void directoryContents(DIR* dir, char* currentDirName){
                         for(int k = 0; k < i; k++){
                             if(strcmp(newDir[k], dirEntry->d_name) == 0){
                                 if(strcmp(newDir[k], ".") == 0 || strcmp(newDir[k], "..") == 0){
-                                        copyfile(newDirStat[k+3], k+3, attr, i+1+k+3);  
+                                        copyfile(newDirStat[k], k, attr, i+k);  
                                 }
                                 copy = 1;
                                 break;
