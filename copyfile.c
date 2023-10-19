@@ -1,6 +1,6 @@
 #include "mysync.h"
 
-void copyfile(struct stat *stats1, int index1, struct stat stats2, int index2){
+void copyfile(int index1, int index2){
     if(&stats1->st_mtime > &stats2.st_mtime){
         char path1[512];
         printf("%s\n",strcat(strcat(realpath(dirNames[index1], path1),"/"), newDir[index1]));

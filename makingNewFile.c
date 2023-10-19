@@ -1,6 +1,6 @@
 #include "mysync.h"
 
-void makingNewFile(struct stat *stats1, int index1, struct stat stats2, int index2) {
+void makingNewFile(int index1, int index2) {
     char path1[512];
     strcat(strcat(realpath(dirNames[index1], path1),"/"), newDir[index2]);
     char path2[512]; 

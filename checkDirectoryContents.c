@@ -7,12 +7,12 @@ void checkDirectoryContents(DIR* dir, char *currentDirName){
         }
         if(strcmp(currentDirName, dirNames[i]) != 0){
             while((dirEntry = readdir(dir)) != NULL){
-                if(strcmp(newDir[i], dirEntry->d_name) = 0){
-                    copyfile();
+                if(strcmp(newDir[i], dirEntry->d_name) == 0){
+                    copyfile(k, i);
                 }
             }
         } else {
-            makefile();
+            makingNewFile(k, i);
         }
     }
 }
