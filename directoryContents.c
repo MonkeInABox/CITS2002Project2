@@ -107,8 +107,10 @@ void directoryContents(DIR* dir){
                             printf("Current: %s \n", dirEntry->d_name);   
                             printf("%i \n", strcmp(newDir[k], dirEntry->d_name));
                             if(strcmp(newDir[k], dirEntry->d_name) == 0){
-                                copyfile(newDirStat[k], newDir[k], attr, dirEntry->d_name);  
-                                printf("HERE");
+                                if(strcmp(dirEntry->d_name, ".") != 0 && strcmp(dirEntry->d_name, "..") != 0){
+                                    copyfile(newDirStat[k], newDir[k], attr, dirEntry->d_name);  
+                                    printf("HERE");
+                                }
                                 copy = 1;
                                 break;
                             }

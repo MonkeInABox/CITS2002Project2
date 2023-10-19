@@ -9,7 +9,9 @@ void copyfile(struct stat *stats1, char *name1, struct stat stats2, char *name2)
         new_times.actime = stats2.st_atime;
         new_times.modtime = stats2.st_mtime;
         printf("%sWOAHAHAHAHAHAHAHHAHA\n", strcat(strcat(path, "/"), name2));
-        fopen(strcat(strcat(path, "/"), name2), NULL);
+        fopen(strcat(strcat(path, "/"), name2), "rw");
+        printf("%sWOAHAHAHAHAHAHAHHAHA\n", strcat(strcat(path, "/"), name2));
         utime(strcat(strcat(path, "/"), name2), &new_times);
+        printf("%sWOAHAHAHAHAHAHAHHAHA\n", strcat(strcat(path, "/"), name2));
     }
 }
