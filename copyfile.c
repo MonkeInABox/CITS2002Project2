@@ -16,13 +16,13 @@ void copyfile(struct stat *stats1, int index1, struct stat stats2, int index2){
         //printf("dsfghjklballs\n");
         //printf("%s \n", strcat(strcat(realpath(dirNames[index2], NULL),"/"), newDir[index2]));
         //printf("dsfghjklballs\n");
-        char path1[512];
-        printf("%s\n",strcat(strcat(realpath(dirNames[index1], path1),"/"), newDir[index1]));
+        char path1[512] =strcat(strcat(realpath(dirNames[index1], NULL),"/"), newDir[index1]);
+        printf("%s\n",strcat(strcat(realpath(dirNames[index1], NULL),"/"), newDir[index1]));
         //printf("dsfghjklballs\n");
-        char path2[512]; 
+        char path2[512] =strcat(strcat(realpath(dirNames[index2], NULL),"/"), newDir[index1]); 
         //printf("dsfghjklballs\n");
         //printf("%i\n", index2);
-        printf("%s\n",strcat(strcat(realpath(dirNames[index2], path2),"/"), newDir[index2]));
+        printf("%s\n",strcat(strcat(realpath(dirNames[index2], NULL),"/"), newDir[index2]));
         //printf("dsfghjklballs\n");
         //printf("djunkelsgkogs\n");
         FILE *sourceFile  = fopen(path1, "r");
