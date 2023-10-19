@@ -65,7 +65,7 @@ int main(int argc, char *argv[]) {
             //argv  += optind;
             //exit(EXIT_SUCCESS);
         for(int i = 0; i < n; i++){
-            checkDirectoryContents(dir[i], argv[i+1]);
+            checkDirectoryContents(dir[i], argv[i+2]);
         } 
     } 
     else if (ENOENT == errno) {
