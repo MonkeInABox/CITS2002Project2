@@ -98,7 +98,9 @@ void directoryContents(DIR* dir){
                         char path[512];
                         int copy = 0;
                         printf("POS 2: %s \n", newDir[1]);
-                        realpath(dirEntry->d_name, path);
+                        printf("sidjfndsif: %s\n",dirEntry->d_name);
+                        //realpath(dirEntry->d_name, path);
+                        getcwd(path, 512);
                         printf("POS 2: %s \n", path);  
                         stat(path, &attr);
                         printf("%s \n", path);
