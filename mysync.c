@@ -58,11 +58,15 @@ int main(int argc, char *argv[]) {
                 directoryContents(dir[i], argv[i+2]);
             }
             else{
-            directoryContents(dir[i], argv[i+1]);}
+                directoryContents(dir[i], argv[i+1]);
+            }
             
             //argc  -= optind;
             //argv  += optind;
-            //exit(EXIT_SUCCESS); 
+            //exit(EXIT_SUCCESS);
+        for(int i = 0; i < n; i++){
+            
+        } 
     } 
     else if (ENOENT == errno) {
         //Directory does not exist. 

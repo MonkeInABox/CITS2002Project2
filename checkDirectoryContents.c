@@ -9,11 +9,11 @@ void checkDirectoryContents(DIR* dir, char *currentDirName){
         if(strcmp(currentDirName, dirNames[i]) != 0){
             while((dirEntry = readdir(dir)) != NULL){
                 if(strcmp(newDir[i], dirEntry->d_name) == 0){
-                    copyfile(k, i);
+                    //copyfile(k, i);
                 }
             }
         } else {
-            makingNewFile(k, i);
+            //makingNewFile(k, i);
         }
     }
 }
