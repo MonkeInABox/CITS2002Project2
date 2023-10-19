@@ -12,15 +12,22 @@ void copyfile(struct stat *stats1, int index1, struct stat stats2, int index2){
         //printf("dsfghjklballs\n");
         //utime(strcat(strcat(realpath(dirNames[index1], NULL),"/"),newDir[index1]), &new_times);
         //printf("dsfghjklballs\n");
-        printf("%s \n", strcat(strcat(realpath(dirNames[index1], NULL),"/"), newDir[index1]));
-        char *path1;
-        path1 = strcat(strcat(realpath(dirNames[index1], NULL),"/"), newDir[index1]);
-        printf("dsfghjklballs\n");
-        char *path2; 
-        path2 = strcat(strcat(realpath(dirNames[index2], NULL),"/"), newDir[index2]);
-        printf("dsfghjklballs\n");
+        //printf("%s \n", strcat(strcat(realpath(dirNames[index1], NULL),"/"), newDir[index1]));
+        //printf("dsfghjklballs\n");
+        //printf("%s \n", strcat(strcat(realpath(dirNames[index2], NULL),"/"), newDir[index2]));
+        //printf("dsfghjklballs\n");
+        char path1[512];
+        printf("%s\n",strcat(strcat(realpath(dirNames[index1], path1),"/"), newDir[index1]));
+        //printf("dsfghjklballs\n");
+        char path2[512]; 
+        //printf("dsfghjklballs\n");
+        //printf("%i\n", index2);
+        printf("%s\n",strcat(strcat(realpath(dirNames[index2], path2),"/"), newDir[index2]));
+        //printf("dsfghjklballs\n");
+        //printf("djunkelsgkogs\n");
         FILE *sourceFile  = fopen(path1, "r");
-        printf("dsfghjklballs\n");
+        //printf("dsfghjklballs\n");
+        //printf("dsfghjklballs\n");
         FILE *destFile    = fopen(path2, "w");  
 
         /* fopen() return NULL if unable to open file in given mode. */

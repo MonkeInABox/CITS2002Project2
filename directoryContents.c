@@ -54,13 +54,19 @@ void directoryContents(DIR* dir, char* currentDirName){
                     i++;
                 } else{
                         char path[512];
+                        newDir[i] = dirEntry->d_name;
+                        stat(newDirPath[i], &attr);
+                        newDirStat[i] = &attr;
+                        dirNames[i] = currentDirName;
                         int copy = 0;
                         realpath(dirEntry->d_name, path);
                         stat(path, &attr);
+                        printf("%i\n", i);
+                        printf("%sim going to thorugh a child down a drain\n",newDir[i-2]);
                         for(int k = 0; k < i; k++){
                             if(strcmp(newDir[k], dirEntry->d_name) == 0){
-                                if(strcmp(dirEntry->d_name, ".") != 0 && strcmp(dirEntry->d_name, "..") != 0){
-                                    copyfile(newDirStat[k], k, attr, i);  
+                                if(strcmp(newDir[k], ".") == 0 || strcmp(newDir[k], "..") == 0){
+                                        copyfile(newDirStat[k+3], k+3, attr, i+1+k+3);  
                                 }
                                 copy = 1;
                                 break;
@@ -77,7 +83,14 @@ void directoryContents(DIR* dir, char* currentDirName){
                             time_t t1 = newDirStat[i]->st_mtime;
                             printf("Last modified time: %ld \n", t1);
                             i++;   
-                        }             
+                        }     
+                        else{
+                            newDir[i] = dirEntry->d_name;
+                            stat(newDirPath[i], &attr);
+                            newDirStat[i] = &attr;
+                            dirNames[i] = currentDirName;
+                            i++;
+                        }        
                 }
             }
         }
