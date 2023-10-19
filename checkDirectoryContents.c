@@ -1,4 +1,5 @@
-#include mysync.h
+#include "mysync.h"
+
 void checkDirectoryContents(DIR* dir, char *currentDirName){
     struct dirent* dirEntry;
     for(int i; i < 100; i++){

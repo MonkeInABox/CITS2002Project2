@@ -54,7 +54,11 @@ int main(int argc, char *argv[]) {
                 }
             }
             //printf("poop");
-            directoryContents(dir[i], argv[i+2]);
+            if(aflag){
+                directoryContents(dir[i], argv[i+2]);
+            }
+            else{
+            directoryContents(dir[i], argv[i+1]);}
             
             //argc  -= optind;
             //argv  += optind;

@@ -1,6 +1,6 @@
 #include "mysync.h"
 
-void copyfile(int index1, int index2){
+void copyfile(struct stat *stats1, int index1, struct stat stats2, int index2){
     if(&stats1->st_mtime > &stats2.st_mtime){
         char path1[512];
         printf("%s\n",strcat(strcat(realpath(dirNames[index1], path1),"/"), newDir[index1]));
@@ -12,7 +12,6 @@ void copyfile(int index1, int index2){
         if (sourceFile == NULL || destFile == NULL)
         {
             printf("\nUnable to open file.\n");
-            printf("Please check if file exists and you have read/write privilege.\n");
             exit(EXIT_FAILURE);
         }
         char ch = fgetc(sourceFile);
@@ -38,7 +37,6 @@ void copyfile(int index1, int index2){
         if (sourceFile == NULL || destFile == NULL)
         {
             printf("\nUnable to open file.\n");
-            printf("Please check if file exists and you have read/write privilege.\n");
             exit(EXIT_FAILURE);
         }
         char ch = fgetc(sourceFile);
@@ -50,7 +48,4 @@ void copyfile(int index1, int index2){
         fclose(sourceFile);
         fclose(destFile);
     }
-    /*else{
-        exit(EXIT_SUCCESS);
-    }*/
 }
