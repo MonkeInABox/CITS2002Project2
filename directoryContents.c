@@ -52,7 +52,8 @@ void directoryContents(DIR* dir, char* currentDirName){
                     newDirStat[i] = &attr;
                     dirNames[i] = currentDirName;
                     i++;
-                } else{
+                } 
+                else{
                         char path[512];
                         newDir[i] = dirEntry->d_name;
                         stat(newDirPath[i], &attr);
@@ -86,14 +87,7 @@ void directoryContents(DIR* dir, char* currentDirName){
                             time_t t1 = newDirStat[i]->st_mtime;
                             printf("Last modified time: %ld \n", t1);
                             i++;   
-                        }     
-                        else{
-                            newDir[i] = dirEntry->d_name;
-                            stat(newDirPath[i], &attr);
-                            newDirStat[i] = &attr;
-                            dirNames[i] = currentDirName;
-                            i++;
-                        }        
+                        }            
                 }
             }
         }
