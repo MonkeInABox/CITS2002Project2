@@ -53,7 +53,7 @@ int main(int argc, char *argv[]) {
                 }
             }
             //printf("poop");
-            directoryContents(dir[i]);
+            directoryContents(dir[i], argv[i+2]);
             
             //argc  -= optind;
             //argv  += optind;
