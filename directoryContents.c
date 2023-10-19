@@ -55,10 +55,6 @@ void directoryContents(DIR* dir, char* currentDirName){
                 } 
                 else{
                         char path[512];
-                        newDir[i] = dirEntry->d_name;
-                        stat(newDirPath[i], &attr);
-                        newDirStat[i] = &attr;
-                        dirNames[i] = currentDirName;
                         int copy = 0;
                         realpath(dirEntry->d_name, path);
                         stat(path, &attr);
@@ -70,7 +66,7 @@ void directoryContents(DIR* dir, char* currentDirName){
                                 printf("%i %i \n", k, i);
                                 printf("%i HERE\n",strcmp(newDir[k], "."));
                                 if(strcmp(newDir[k], ".") != 0 && strcmp(newDir[k], "..") != 0){
-                                    copyfile(newDirStat[k], k, attr, i);  
+                                    copyfile(newDirStat[k], k, attr, currentDirName, dirEntry->d_name);  
                                 }
                                 copy = 1;
                                 break;
