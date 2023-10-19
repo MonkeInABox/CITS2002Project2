@@ -22,7 +22,7 @@ void directoryContents(DIR* dir, char* currentDirName){
                         stat(path, &attr);
                         for(int k = 0; k < i; k++){
                             if(strcmp(newDir[k], dirEntry->d_name) == 0){
-                                if(strcmp(dirEntry->d_name, ".") != 0 && strcmp(dirEntry->d_name, "..") != 0){
+                                if(strcmp(dirEntry->d_name, ".") != 0 || strcmp(dirEntry->d_name, "..") != 0){
                                     copyfile(newDirStat[k], k, attr, i); 
                                 }
                                 copy = 1;
@@ -65,8 +65,11 @@ void directoryContents(DIR* dir, char* currentDirName){
                         printf("%sim going to thorugh a child down a drain\n",newDir[i-2]);
                         for(int k = 0; k < i; k++){
                             if(strcmp(newDir[k], dirEntry->d_name) == 0){
-                                if(strcmp(newDir[k], ".") == 0 || strcmp(newDir[k], "..") == 0){
-                                        copyfile(newDirStat[k], k, attr, i+k);  
+                                printf("%s\n", newDir[k]);
+                                printf("%i %i \n", k, i);
+                                printf("%i HERE\n",strcmp(newDir[k], "."));
+                                if(strcmp(newDir[k], ".") != 0 && strcmp(newDir[k], "..") != 0){
+                                    copyfile(newDirStat[k], k, attr, i);  
                                 }
                                 copy = 1;
                                 break;
