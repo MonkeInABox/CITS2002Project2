@@ -18,7 +18,7 @@
 //GLOBAL FUNCTIONS
 extern void mysync();
 extern void directoryContents(DIR* dir, char* currentDirName);
-extern void copyfile(struct stat *stats1, char *name1, struct stat stats2, char* name2);
+extern void copyfile(struct stat *stats1, int index1, struct stat stats2, int index2);
 
 //GLOBAL VARIABLES DECLARED (see globals.c for comments about the variables)
 extern char *dirNames[];
