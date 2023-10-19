@@ -34,7 +34,7 @@ void directoryContents(DIR* dir){
     static int firstDir = 0;
     struct dirent* dirEntry;
     //printf("ermm");
-    int i = 0;
+    static int i = 0;
     struct stat attr;
         while((dirEntry = readdir(dir)) != NULL){
             if(!aflag){
@@ -83,6 +83,7 @@ void directoryContents(DIR* dir){
                     }
             }
             else{
+                printf("firstDir: %i \n", firstDir);
                 if(firstDir == 0){
                     char *name = dirEntry->d_name;
                     printf("%s\n", name);
@@ -95,16 +96,20 @@ void directoryContents(DIR* dir){
                     i++;
                 } else{
                         int copy = 0;
-                        char *path = realpath(dirEntry->d_name, newDirPath[i]);
-                        printf("%s \n",realpath(dirEntry->d_name, newDirPath[i]));
+                        char *path = realpath(dirEntry->d_name, newDirPath[i]);  
                         stat(path, &attr);
+                        printf("%s \n", path);
                         for(int k = 0; k < i; k++){
+                            printf("Compare: %s \n", newDir[k]);
+                            printf("Current: %s \n", dirEntry->d_name);   
+                            printf("%i \n", strcmp(newDir[k], dirEntry->d_name));
                             if(strcmp(newDir[k], dirEntry->d_name) == 0){
                                 if(&newDirStat[k]->st_mtime < &attr.st_mtime){
                                     newDirPath[k] = path;
                                     newDirStat[k] = &attr;
                                 }
                                 copy = 1;
+                                break;
                             }
                         } 
                         if(copy == 0){
@@ -122,6 +127,9 @@ void directoryContents(DIR* dir){
                     }
             }
         }
+    for(int j = 0; j < i; j++){
+        printf("newDir: %s \n", newDir[j]);
+    }
     firstDir = 1;
     closedir(dir);
 }                
