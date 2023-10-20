@@ -6,14 +6,14 @@ void checkDirectoryContents(){
         makingNewFile(0, i);
     }
     for(int i = 0; i < startIndex[0]; i++){
-        for(int j = startIndex; j < startIndex[1]; j++){
+        for(int j = startIndex[0]; j < startIndex[1]; j++){
             if(strcmp(newDir[i], newDir[j]) == 0){
                 copy = 1;
                 break;
             }
         }
         if(copy == 0){
-            makingNewFile(startIndex, i);
+            makingNewFile(startIndex[0], i);
         }
     }   
 }
