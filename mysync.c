@@ -1,7 +1,13 @@
 #include "mysync.h"
+//main function, this calls the rest of the program
+/*
+JEREMY BUTSON - 23390554
+DYLAN ARTO - 
+*/
+#define OPTLIST "ai:no:prv" //the possible commands that can be input
 
-#define OPTLIST "ai:no:prv"
 
+//usage error function
 void usage(int value) {
     if (value == 1) {
         printf("please input ./mysync  [cmd]  [dir/s] \n");
@@ -12,6 +18,7 @@ void usage(int value) {
     }
 }
 
+//MAIN 
 int main(int argc, char *argv[]) {
     DIR* dir[argc];
     int n = 0;
@@ -19,54 +26,37 @@ int main(int argc, char *argv[]) {
         dir[n] = opendir(argv[i]);
         n++;
     }
-    //printf("awesome \n");
     for(int i = 0; i < n; i++){
         if (dir[i]) {
-            //printf("awesomeSauce");
-            //directoryContents(dir);
-            //Directory exists. 
             if(i == 0){
-                //printf("poop");
             int  opt;
-            //char *pattern = NULL;
-
-            //int optind	= 0;
                 while((opt = getopt(argc, argv, OPTLIST)) != -1)   {  
-                //  ACCEPT A BOOLEAN ARGUMENT
+                    
                     if(opt == 'a') {
-                        //printf("poop");
                         aflag  =  !aflag;
-                        //printf("%i", aflag);
                     }
-                    //  ACCEPT A STRING ARGUMENT
                     else if(opt == 'i') {
                         //pattern  =  strdup(optarg);
                     }
-                    //  ACCEPT A INTEGER ARGUMENT
                     else if(opt == 'n') {
                         //pattern  =  atoi(optarg);
                     }
-                    //  OOPS - AN UNKNOWN ARGUMENT
+                    //  if an option not listed is put in
                     else {
                     usage(1);
                     exit(EXIT_FAILURE);
                     }
                 }
             }
-            //printf("poop");
             if(aflag){
                 directoryContents(dir[i], argv[i+2]);
             }
             else{
                 directoryContents(dir[i], argv[i+1]);
             }
-            
-            //argc  -= optind;
-            //argv  += optind;
-            //exit(EXIT_SUCCESS);
-        for(int i = 0; i < n; i++){
+        /*for(int i = 0; i < n; i++){
             checkDirectoryContents(dir[i], argv[i+2]);
-        } 
+        } */
     } 
     else if (ENOENT == errno) {
         //Directory does not exist. 

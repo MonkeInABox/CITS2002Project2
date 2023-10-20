@@ -1,4 +1,8 @@
 #include "mysync.h"
+
+/*This function checks through each directory put in, putting these results into arrays with indexes matching
+which directory they are in, allowing for it to be passed through to following functions and found properly. 
+*/
 void directoryContents(DIR* dir, char* currentDirName){
     static int firstDir = 0;
     struct dirent* dirEntry;
