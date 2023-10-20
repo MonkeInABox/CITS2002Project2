@@ -55,9 +55,6 @@ void directoryContents(DIR* dir, char* currentDirName){
                     }
                 }
             }
-            else if(nflag){
-
-            }
             else{ //gone through if -a is specified in the command line. Does the same thing as when aflag is false except it considers files with '.' at the start of their names.
                 printf("firstDir: %i \n", firstDir);
                 if(firstDir == 0){
