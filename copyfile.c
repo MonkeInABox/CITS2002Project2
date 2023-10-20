@@ -2,12 +2,12 @@
 
 void copyfile(struct stat *stats1, int index1, struct stat stats2, char *dirName2, char *fileName2){
     if(&stats1->st_mtime > &stats2.st_mtime){
-        printf("COPY 1: %s %s %s \n" newDir[0], newDir[1], newDir[2]);
+        printf("COPY 1: %s %s %s \n", newDir[0], newDir[1], newDir[2]);
         char path1[512];
         printf("%s\n",strcat(strcat(realpath(dirNames[index1], path1),"/"), newDir[index1]));
         char path2[512]; 
         printf("%s\n",strcat(strcat(realpath(dirName2, path2),"/"), fileName2));
-        printf("COPY 2: %s %s %s \n" newDir[0], newDir[1], newDir[2]);
+        printf("COPY 2: %s %s %s \n", newDir[0], newDir[1], newDir[2]);
         FILE *sourceFile  = fopen(path1, "r");
         FILE *destFile    = fopen(path2, "w");  
 
@@ -24,15 +24,15 @@ void copyfile(struct stat *stats1, int index1, struct stat stats2, char *dirName
         }
         fclose(sourceFile);
         fclose(destFile);
-        printf(" COPY3: %s %s %s \n" newDir[0], newDir[1], newDir[2]);
+        printf(" COPY3: %s %s %s \n", newDir[0], newDir[1], newDir[2]);
     }
     if(&stats1->st_mtime < &stats2.st_mtime){
-        printf("COPY 1:%s %s %s \n" newDir[0], newDir[1], newDir[2]);
+        printf("COPY 1:%s %s %s \n", newDir[0], newDir[1], newDir[2]);
         char path2[512];
         char path1[512]; 
         printf("%s\n",strcat(strcat(realpath(dirName2, path1),"/"), fileName2));
         printf("%s\n",strcat(strcat(realpath(dirNames[index1], path2),"/"), newDir[index1]));
-        printf("COPY 2: %s %s %s \n" newDir[0], newDir[1], newDir[2]);
+        printf("COPY 2: %s %s %s \n", newDir[0], newDir[1], newDir[2]);
         FILE *sourceFile  = fopen(path2, "r");
         FILE *destFile    = fopen(path1, "w");  
 
@@ -49,6 +49,6 @@ void copyfile(struct stat *stats1, int index1, struct stat stats2, char *dirName
         }
         fclose(sourceFile);
         fclose(destFile);
-        printf("COPY 3: %s %s %s \n" newDir[0], newDir[1], newDir[2]);
+        printf("COPY 3: %s %s %s \n", newDir[0], newDir[1], newDir[2]);
     }
 }
