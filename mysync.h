@@ -23,12 +23,9 @@ extern void checkDirectoryContents();
 
 //GLOBAL VARIABLES DECLARED (see globals.c for comments about the variables)
 extern char *dirNames[];
-extern char *dirModified[];
 extern char *newDir[];
 extern char *newDirPath[];
 extern struct stat *newDirStat[]; 
-extern char *fileCopy1[];
-extern char *fileCopy2[];
 extern int startIndex[];
 extern bool aflag;
 extern bool nflag;
