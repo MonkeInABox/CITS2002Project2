@@ -58,6 +58,7 @@ void directoryContents(DIR* dir, char* currentDirName){
                     i++;
                 } 
                 else{
+                        dirNames[i] = currentDirName;
                         char path[512];
                         int copy = 0;
                         realpath(dirEntry->d_name, path);

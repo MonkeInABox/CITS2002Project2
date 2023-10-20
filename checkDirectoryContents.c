@@ -8,6 +8,7 @@ void checkDirectoryContents(){
     }
     printf("HERE2\n");
     for(int i = 0; i < startIndex[1]; i++){
+        copy = 0;
         for(int j = startIndex[0]; j < startIndex[1]; j++){
             printf("HERE1\n");
             if(strcmp(newDir[i], newDir[j]) == 0){
