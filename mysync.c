@@ -2,7 +2,7 @@
 //main function, this calls the rest of the program
 /*
 JEREMY BUTSON - 23390554
-DYLAN ARTO - 
+DYLAN ARTO - 23360073
 */
 #define OPTLIST "ai:no:prv" //the possible commands that can be input
 
@@ -48,6 +48,7 @@ int main(int argc, char *argv[]) {
                     }
                 }
             }
+            //run every directory through directory contents
             if(aflag){
                 directoryContents(dir[i], argv[i+2]);
             }
