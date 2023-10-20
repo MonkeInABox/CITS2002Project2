@@ -20,6 +20,7 @@ void checkDirectoryContents(){
             }
         }
         if(copy == 0){
+            chdir(dirNames[1]);
             makingNewFile(startIndex[0], i);
         }
     }   

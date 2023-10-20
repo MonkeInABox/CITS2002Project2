@@ -55,7 +55,6 @@ int main(int argc, char *argv[]) {
             else{
                 directoryContents(dir[i], argv[i+1]);
             }
-            //checkDirectoryContents();
     } 
     else if (ENOENT == errno) {
         //Directory does not exist. 

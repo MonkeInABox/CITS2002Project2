@@ -90,6 +90,6 @@ void directoryContents(DIR* dir, char* currentDirName){
             }
         }
     startIndex[firstDir] = i;
-    firstDir++
+    firstDir++;
     closedir(dir);
 }

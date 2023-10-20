@@ -6,8 +6,8 @@ char *newDirPath[50];                       //stores the paths to each file that
 struct stat *newDirStat[50];                //stores the stats for each item that will be in the synced directories
 char *dirNames[100];                        //stores directory names
 bool aflag = false;                         //used to pass through whether the a command has been used
-bool nflag = false;                         //used to pass through whether the a command has been used
-bool rflag = false;                         //used to pass through whether the a command has been used
-bool pflag = false;                         //used to pass through whether the a command has been used
-bool vflag = false;                         //used to pass through whether the a command has been used
+bool nflag = false;                         //used to pass through whether the n command has been used
+bool rflag = false;                         //used to pass through whether the r command has been used
+bool pflag = false;                         //used to pass through whether the p command has been used
+bool vflag = false;                         //used to pass through whether the v command has been used
 int startIndex[2];                          //used to store indexes of where the directory source of files in newDir, newDirPath, etc. arrays changes
