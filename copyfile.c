@@ -22,6 +22,7 @@ void copyfile(struct stat *stats1, int index1, struct stat stats2, char *dirName
         }
         fclose(sourceFile);
         fclose(destFile);
+        fprint(" COPY: %s %s %s \n" newDir[0], newDir[1], newDir[2]);
     }
     if(&stats1->st_mtime < &stats2.st_mtime){
         char path2[512];
@@ -44,5 +45,6 @@ void copyfile(struct stat *stats1, int index1, struct stat stats2, char *dirName
         }
         fclose(sourceFile);
         fclose(destFile);
+        fprint("COPY: %s %s %s \n" newDir[0], newDir[1], newDir[2]);
     }
 }

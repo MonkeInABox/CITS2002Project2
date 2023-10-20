@@ -71,7 +71,8 @@ void directoryContents(DIR* dir, char* currentDirName){
                                 printf("%i %i \n", k, i);
                                 printf("%i HERE\n",strcmp(newDir[k], "."));
                                 if(strcmp(newDir[k], ".") != 0 && strcmp(newDir[k], "..") != 0){
-                                    copyfile(newDirStat[k], k, attr, currentDirName, dirEntry->d_name);  
+                                    copyfile(newDirStat[k], k, attr, currentDirName, dirEntry->d_name);
+                                        fprint("POST COPY: %s %s %s \n" newDir[0], newDir[1], newDir[2]);  
                                 }
                                 copy = 1;
                                 break;
@@ -86,7 +87,8 @@ void directoryContents(DIR* dir, char* currentDirName){
                             time_t t1 = newDirStat[i]->st_mtime;
                             printf("Last modified time: %ld \n", t1);
                             i++;   
-                        }            
+                        }
+                                    
                 }
             }
         }
