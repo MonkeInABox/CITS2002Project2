@@ -95,6 +95,9 @@ void directoryContents(DIR* dir, char* currentDirName){
         printf("newDir: %s \n", newDir[j]);
         printf("Dir: %s\n", dirNames[j]);
     }
+    if(firstDir == 0){
+        startIndex = i;
+    }
     firstDir = 1;
     closedir(dir);
 }

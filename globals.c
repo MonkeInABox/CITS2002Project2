@@ -9,3 +9,4 @@ char *dirNames[100];                       //stores directory names
 char *dirModified1[20];                    //
 char *dirModified2[20];                    //
 bool aflag = false;                        //used to pass through whether the a command has been used
+int startIndex = 0;

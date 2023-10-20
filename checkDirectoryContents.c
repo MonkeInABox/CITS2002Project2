@@ -1,19 +1,22 @@
 #include "mysync.h"
 
-void checkDirectoryContents(DIR* dir, char *currentDirName){
-    struct dirent* dirEntry;
-    for(int i; i < 100; i++){
-        if(strcmp(dirNames[i], "0") == 0){
+void checkDirectoryContents(){
+    int copy = 0;
+    for(int i = startIndex; i < 100; i++){
+        if(strcmp(newDir[i], "0") = 0){
             break;
         }
-        if(strcmp(currentDirName, dirNames[i]) != 0){
-            while((dirEntry = readdir(dir)) != NULL){
-                if(strcmp(newDir[i], dirEntry->d_name) == 0){
-                    //copyfile(k, i);
-                }
-            }
-        } else {
-            //makingNewFile(k, i);
-        }
+        makingNewFile(0, i);
     }
+    for(int i = 0; i < startIndex; i++){
+        for(int j = startIndex; j < 100, j++){
+            if(strcmp(newDir[i], newDir[j]) == 0){
+                copy = 1;
+                break;
+            }
+        }
+        if(copy == 0){
+            makingNewFile(startIndex, i);
+        }
+    }   
 }
