@@ -30,7 +30,7 @@ extern char *newDirPath[];
 extern struct stat *newDirStat[]; 
 extern char *fileCopy1[];
 extern char *fileCopy2[];
-extern int startIndex;
+extern int startIndex[];
 extern bool aflag;
 extern bool nflag;
 extern bool rflag;
