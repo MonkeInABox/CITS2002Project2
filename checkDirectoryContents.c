@@ -3,7 +3,7 @@
 void checkDirectoryContents(){
     int copy = 0;
     for(int i = startIndex; i < 100; i++){
-        if(strcmp(newDir[i], "0") != 0){
+        if(strcmp(newDir[i], "0") == 0){
             break;
         }
         makingNewFile(0, i);
@@ -12,6 +12,9 @@ void checkDirectoryContents(){
         for(int j = startIndex; j < 100; j++){
             if(strcmp(newDir[i], newDir[j]) == 0){
                 copy = 1;
+                break;
+            }
+            if(strcmp(newDir[j], "0") == 0){
                 break;
             }
         }
