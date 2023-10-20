@@ -36,7 +36,7 @@ void copyfile(struct stat *stats1, int index1, struct stat stats2, char *dirName
     }
     if(&stats1->st_mtime < &stats2.st_mtime){
         for(int i = 0; i < 5; i++){
-            tempNames[i] = dirName[i];
+            tempNames[i] = newDir[i];
         }
         printf("COPY 1:%s %s %s \n", newDir[0], newDir[1], newDir[2]);
         char path2[512];
