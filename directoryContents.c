@@ -55,6 +55,9 @@ void directoryContents(DIR* dir, char* currentDirName){
                     }
                 }
             }
+            else if(nflag){
+                
+            }
             else{ //gone through if -a is specified in the command line.
                 printf("firstDir: %i \n", firstDir);
                 if(firstDir == 0){
